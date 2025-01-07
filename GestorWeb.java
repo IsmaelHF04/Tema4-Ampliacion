@@ -18,11 +18,10 @@ public class GestorWeb {
      * sea igual o lo contenga en el nombre y apellidos de facturas en caso contrario devolverá falso.
      * */
     public static boolean comprobacionPrimera(Propietarios propietarios, Facturas facturas){
-        if (!propietarios.getNombre().contains(facturas.getPropietario()))
-            return false;
-        if (!propietarios.getApellidos().contains(facturas.getPropietario()))
-            return false;
-        return true;
+        String nombreCompleto = propietarios.getNombre() + " " + propietarios.getApellidos();
+        if (nombreCompleto.equals(facturas.getPropietario()))
+            return true;
+        return false;
     }
 
     /**
